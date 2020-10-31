@@ -1,0 +1,10 @@
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\bin\Debug\netcoreapp2.0\MyWarehouse.deps.json
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\bin\Debug\netcoreapp2.0\MyWarehouse.runtimeconfig.json
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\bin\Debug\netcoreapp2.0\MyWarehouse.runtimeconfig.dev.json
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\bin\Debug\netcoreapp2.0\MyWarehouse.dll
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\bin\Debug\netcoreapp2.0\MyWarehouse.pdb
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\obj\Debug\netcoreapp2.0\MyWarehouse.csproj.CoreCompileInputs.cache
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\obj\Debug\netcoreapp2.0\MyWarehouse.AssemblyInfoInputs.cache
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\obj\Debug\netcoreapp2.0\MyWarehouse.AssemblyInfo.cs
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\obj\Debug\netcoreapp2.0\MyWarehouse.dll
+C:\Users\Alibek\Desktop\MyWarehouse\MyWarehouse\obj\Debug\netcoreapp2.0\MyWarehouse.pdb
