@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyWarehouse.Model;
@@ -11,6 +12,7 @@ using MyWarehouse.Repositories;
 
 namespace MyWarehouse.Controllers
 {
+    [EnableCors("AnotherPolicy")]
     [Produces("application/json")]
     [Route("Products")]
     public class ProductController : Controller
@@ -29,6 +31,7 @@ namespace MyWarehouse.Controllers
             return new OkObjectResult(products);
             //return new string[] { "value1", "value2" };
         }
+        [EnableCors("Policy1")]
         // GET: api/Product/5
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)

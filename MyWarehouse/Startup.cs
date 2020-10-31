@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ namespace MyWarehouse
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,9 +29,18 @@ namespace MyWarehouse
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddMvc();
-            //services.AddDbContext<ProductContext>(o => o.UseSqlServer(Configuration.GetConnectionString("ProductDB")));
-            //services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("*",
+                                                          "*")
+                                                    .AllowAnyHeader()
+                                                    .AllowAnyMethod();
+                                  });
+                
+            });
 
             services.AddDbContext<ProductContext>(o => o.UseSqlServer(Configuration.GetConnectionString("ProductDB")));
             services.AddTransient<IProductRepository, ProductRepository>();
@@ -45,15 +56,25 @@ namespace MyWarehouse
                 app.UseDeveloperExceptionPage();
             }
 
+            
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
+            app.UseCors();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapGet("/echo",
+                context => context.Response.WriteAsync("echo"))
+                .RequireCors(MyAllowSpecificOrigins);
+
+                endpoints.MapControllers()
+                    .RequireCors(MyAllowSpecificOrigins); ;
+
             });
         }
     }
